@@ -26,6 +26,7 @@ body {
     font-size: 1.5rem;
     opacity: .6;
     cursor: pointer;
+    z-index: -1;
 }
 
 a.formula:link
@@ -326,7 +327,6 @@ form.form1 {
 
 
 #username {
-    /*display: none;*/
     border-radius: 5px;
     padding: 10px;
     border: 1px solid black;
