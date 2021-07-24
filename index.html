@@ -28,7 +28,6 @@
     </header>
     <main>
         <div class="main">
-            <div class="spacer"></div>
             <h2 class="selecttip">Which field of mathematics would you like to practice ?</h2>
             <div class="buttons">
                 <button onclick="CenterArithmetics()" id="arithmetics">Arithmetics</button>
@@ -37,10 +36,20 @@
                 <button onclick="CenterCalculus()" id="calculus">Calculus</button>
             </div>
             <div class="play">
-                <p class="sign">Let's Play</p>
-                <form class="form1">
+                <p class="playtitle">Let's Play</p>
+                <form class="playform">
                     <input class="un" type="text" placeholder="Username">
-                    <a class="submit">Play</a>
+                    <h3 id="difficultylabel">Difficulty</h3>
+                    <div class="difficultybuttons">
+                        <button id="easy">Easy</button>
+                        <button id="medium">Medium</button>
+                        <button id="hard">Hard</button>
+                    </div>
+                    <h3 id="settingslabel">Settings</h3>
+                    <label for="questionscount">Questions count</label>
+                    <input value="qcount" id="questionscount" type="number" min="1">
+                    <br>
+                    <button class="playbtn">Play</a>
             </div>
         </div>
     </main>
