@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0489fb;
+    overflow: hidden;
+}
+
+.header {
+    text-align: center;
+}
+
+.add {
+    color:#00FF00;
+    font-size: 1.5rem;
+}
+
+.subtract {
+    color:#FF0000;
+    font-size: 1.5rem;
+}
+
+.multiply {
+    color:blue;
+    font-size: 1.5rem;
+}
+
+.divide {
+    color:yellow;
+    font-size: 1.5rem;
+}
+
+.exponent {
+
+    font-size: 1.5rem;
+}
+
+.squareroot {
+
+    font-size: 1.5rem;
+}
+
+.title {
+    font-size: 4rem;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.description {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    /*animation: descriptionfall 2s linear forwards;*/
+}
+
+.operators
+{
+    text-align: center;
+    font-size: 1.2rem;
+    background-color: #20202020;
+    width: 20%;
+    text-align: center;
+    margin: auto;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    /*animation: moveoperatorslist 5s linear forwards;*/
+}
+
+.oplist
+{
+    text-align: center;
+    list-style: none;
+    padding: 0;
+    margin-top: -15px;
+}
+
+.playground {
+    text-align: center;
+}
+
+#startgame {
+    cursor: pointer;
+    margin-top: 100px;
+    width: 300px;
+    height: 80px;
+    border-radius: 15px;
+    border: 2px solid black;
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #1461eb, #02b3fd);
+    box-shadow: 0 0 5px black;
+    overflow: hidden;
+    /*animation: buttonmoveaway 2s linear forwards;*/
+}
+
+#startgame:hover
+{
+    transform: scale(1.15);
+    transition: .75s;
+}
+
+#startgame:active
+{
+    transform: scale(0.9);
+    transition: .25s;
+}
+
+@keyframes buttonmoveaway
+{
+    from {
+        transform: translateX(0px) rotate(0deg) translateY(0px);
+    }
+    to {
+        transform: translateX(1000px) rotate(90deg) translateY(-1000px);
+    }
+}
+
+@keyframes descriptionfall
+{
+    from {
+        transform: translateX(0px) translateY(0px) rotate(0deg);
+    }
+    to {
+        transform: translateX(0px) translateY(1000px) rotate(180deg);
+    }
+}
+
+@keyframes moveoperatorslist
+{
+    0% {
+        transform: translateX(0px) translateY(0px);
+    }
+    50% {
+        transform: translateX(700px) translateY(0px);
+    }
+    100% {
+        transform: translateX(700px) translateY(-220px);
+    }
+}
