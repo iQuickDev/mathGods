@@ -42,6 +42,7 @@ function CenterArithmetics()
     document.querySelector("#calculus").style.animation = "slideawayright 1s ease-in-out forwards";
     document.querySelector(".play").style.display = "block";
     document.querySelector(".play").style.animation = "playpanelslideup 1s linear forwards";
+    sessionStorage.setItem("topic", "arithmetics");
 }
 
 function CenterAlgebra()
@@ -52,6 +53,7 @@ function CenterAlgebra()
     document.querySelector("#calculus").style.animation = "slideawayright 1s ease-in-out forwards";
     document.querySelector(".play").style.display = "block";
     document.querySelector(".play").style.animation = "playpanelslideup 1s linear forwards";
+    sessionStorage.setItem("topic", "algebra");
 }
 
 function CenterTrigonometry()
@@ -62,6 +64,7 @@ function CenterTrigonometry()
     document.querySelector("#calculus").style.animation = "slideawayright 1s ease-in-out forwards";
     document.querySelector(".play").style.display = "block";
     document.querySelector(".play").style.animation = "playpanelslideup 1s linear forwards";
+    sessionStorage.setItem("topic", "trigonometry");
 }
 
 function CenterCalculus()
@@ -72,6 +75,54 @@ function CenterCalculus()
     document.querySelector("#calculus").style.animation = "centercalculus 1s ease-in-out forwards";
     document.querySelector(".play").style.display = "block";
     document.querySelector(".play").style.animation = "playpanelslideup 1s linear forwards";
+    sessionStorage.setItem("topic", "calculus");
+}
+
+function DiffEasy()
+{
+    sessionStorage.setItem("difficulty", "easy");
+}
+
+function DiffMedium()
+{
+    sessionStorage.setItem("difficulty", "medium");
+}
+
+function DiffHard()
+{
+    sessionStorage.setItem("difficulty", "hard");
+}
+
+function StartGame()
+{
+    sessionStorage.setItem("username", document.querySelector("#usernamefield").value);
+    sessionStorage.setItem("questionscount", document.querySelector("#questionscount").value);
+    switch (sessionStorage.getItem("topic"))
+    {
+        case "arithmetics":
+        {
+            window.location.href = "pages/arithmetics.html";
+            break;
+        }
+
+        case "algebra":
+        {
+            window.location.href = "pages/algebra.html";
+            break;
+        }
+
+        case "trigonometry":
+        {
+            window.location.href = "pages/trigonometry.html";
+            break;
+        }
+
+        case "calculus":
+        {
+            window.location.href = "pages/calculus.html";
+            break;
+        }
+    }
 }
 
 var formulas = document.getElementsByTagName("cite");

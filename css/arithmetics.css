@@ -42,7 +42,6 @@ body {
 
 .title {
     font-size: 4rem;
-    padding-top: 20px;
     padding-bottom: 20px;
     text-align: center;
 }
@@ -53,7 +52,6 @@ body {
     text-align: center;
     margin-bottom: 20px;
     font-size: 1.2rem;
-    /*animation: descriptionfall 2s linear forwards;*/
 }
 
 .operators
@@ -67,7 +65,6 @@ body {
     border-radius: 10px;
     padding: 10px;
     border: 1px solid black;
-    /*animation: moveoperatorslist 5s linear forwards;*/
 }
 
 .oplist
@@ -95,7 +92,6 @@ body {
     background: linear-gradient(to right, #1461eb, #02b3fd);
     box-shadow: 0 0 5px black;
     overflow: hidden;
-    /*animation: buttonmoveaway 2s linear forwards;*/
 }
 
 #startgame:hover

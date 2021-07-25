@@ -38,18 +38,18 @@
             <div class="play">
                 <p class="playtitle">Let's Play</p>
                 <form class="playform">
-                    <input class="un" type="text" placeholder="Username">
+                    <input id="usernamefield" class="un" type="text" placeholder="Username">
                     <h3 id="difficultylabel">Difficulty</h3>
                     <div class="difficultybuttons">
-                        <button id="easy">Easy</button>
-                        <button id="medium">Medium</button>
-                        <button id="hard">Hard</button>
+                        <button onclick="DiffEasy()" type="button" id="easy">Easy</button>
+                        <button onclick="DiffMedium()" type="button" id="medium">Medium</button>
+                        <button onclick="DiffHard()" type="button" id="hard">Hard</button>
                     </div>
                     <h3 id="settingslabel">Settings</h3>
                     <label for="questionscount">Questions count</label>
-                    <input value="qcount" id="questionscount" type="number" min="1">
+                    <input value="10" id="questionscount" type="number" min="1" max="100">
                     <br>
-                    <button class="playbtn">Play</a>
+                    <button type="button" onclick="StartGame()" id="playbtn">Play</a>
             </div>
         </div>
     </main>
