@@ -21,13 +21,13 @@
                 used until the beginning of the 20th century as synonyms for number theory, and are sometimes still used
                 to refer to a wider part of number theory.</p>
             <div id="opbox" class="operators">
-                <h3 id="optitle">You'll find these operators: </h3>
+                <h3 id="optitle">Operators</h3>
                 <ul class="oplist">
                     <li><span class="add">+</span> Addition</li>
                     <li><span class="subtract">-</span> Subtraction</li>
                     <li><span class="multiply">×</span> Multiplication</li>
                     <li><span class="divide">÷</span> Division</li>
-                    <li><span class="exponent">nⁿ</span> Exponent</li>
+                    <li>n<span class="exponent">ⁿ</span> Exponent</li>
                     <li><span class="squareroot">√</span> Square root</li>
                 </ul>
             </div>
@@ -35,10 +35,18 @@
         </div>
     </header>
     <main>
-        <div class="playground">
+        <div id="playground">
+            <h2 id="timeleft">[Time]</h2>
+            <h2 id="answerscount">[AC]</h2>
+            <h2 id="questionscount">[QC]</h2>
+            <h2 id="countdivider">/</h2>
+            <h1 id="question">[Question]</h1>
+            <canvas id="drawzone"></canvas>
+            <input id="answer" type="number" placeholder="Answer">
         </div>
     </main>
     <script src="../scripts/arithmetics.js"></script>
+    <script src="../scripts/draw.js"></script>
 </body>
 
 </html>
