@@ -99,10 +99,6 @@ input::-webkit-inner-spin-button {
     padding: 5px;
 }
 
-.playground {
-    text-align: center;
-}
-
 #startgame {
     cursor: pointer;
     margin-top: 100px;
@@ -133,20 +129,20 @@ input::-webkit-inner-spin-button {
 @keyframes buttonmoveaway
 {
     from {
-        transform: translateX(0px) rotate(0deg) translateY(0px);
+        transform: translateX(0px) rotate(0deg) translateY(0px); opacity: 1;
     }
     to {
-        transform: translateX(1000px) rotate(90deg) translateY(-1000px);
+        transform: translateX(1000px) rotate(90deg) translateY(-1000px); opacity: 0;
     }
 }
 
 @keyframes descriptionfall
 {
     from {
-        transform: translateX(0px) translateY(0px) rotate(0deg);
+        transform: translateX(0px); opacity: 1;
     }
     to {
-        transform: translateX(0px) translateY(1000px) rotate(180deg);
+        transform: translateX(-1800px); opacity: 0;
     }
 }
 
@@ -163,19 +159,15 @@ input::-webkit-inner-spin-button {
     }
 }
 
-main {
-    text-align: center;
-}
 
 #playground {
     background-color: #202020;
     color: white;
     border-radius: 15px;
     border: 1px solid black;
-    width: 50%;
+    width: 70%;
+    margin-left: 100px;
     height: 80vh;
-    margin-left: auto;
-    margin-right: auto;
     display: none;
     text-align: center;
 }
@@ -183,74 +175,126 @@ main {
 @keyframes playgroundmoveup
 {
     from {
-        transform: translateY(0);
+        transform: translateY(300px);
     }
     to {
         transform: translateY(-700px);
     }
 }
 
-#timeleft
-{
-    position: relative;
-    margin-left: 830px;
+#gameinfo {
+    width: 100%;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #252525;
+    margin-bottom: 20px;
 }
 
-#answerscount
-{
-    position: relative;
-    top: -60px;
-    margin-right: 860px;
-}
-
-#countdivider
-{
-    position: relative;
-    top: -170px;
-    margin-right: 780px;
-}
-
-#questionscount
-{
-    position: relative;
-    top: -115px;
-    margin-right: 700px;
-}
-
-#question
-{
-    top: -230px;
-    position: relative;
-}
 
 #answer
 {
-    position: relative;
+    color: transparent;
+    text-shadow: 0 0 0px white;
+    display: inline;
     outline: none;
-    width: 200px;
-    height: 40px;
-    background-color: #303030;
+    width: 100px;
+    height: 25px;
+    background-color: #252525;
     border-radius: 10px;
-    border: 1px solid black;
-    font-size: 2.5rem;
+    border: 1px solid #151515;
+    font-size: 1.6rem;
     font-family: "Poppins", sans-serif;
     padding: 10px;
-    top: -240px;
-    text-align: center;
-    color: white;
+    margin: auto;
     font-weight: 600;
+    text-align: center;
 }
 
 #drawzone
 {
-    position: relative;
-    top: -240px;
+    margin-left: 35px;
     border-radius: 5px;
-    border: 1px solid black;
+    border: 1px solid #151515;
     background-color: #303030;
+    margin-top: -380px;
 }
 
-#submitresult 
+#canvasmenu
 {
-    transform: translateY(-230px);
+    width: 50px;
+    height: 150px;
+    margin-left: 15px;
+    margin-top: 250px;
+}
+
+#canvasmenu button
+{
+    border-radius: 10px;
+    border: 1px solid #151515;
+    transition: .5s;
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #252525;
+}
+
+#pen:hover
+{
+    transform: scale(1.1);
+}
+
+#pen:active
+{
+    transform: scale(0.9);
+    transition: .25s;
+}
+
+#eraser:hover
+{
+    transform: scale(1.1);
+}
+
+#eraser:active
+{
+    transform: scale(0.9);
+    transition: .25s;
+}
+
+#cleardrawing:hover
+{
+    transform: scale(1.1);
+}
+
+#cleardrawing:active
+{
+    transform: scale(0.9);
+    transition: .25s;
+}
+
+
+#submitresult
+{
+    width: 100px;
+    height: 40px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    border: none;
+    background: linear-gradient(45deg, #00ff6e, #00ff3b);
+    transition: .5s;
+    font-weight: 600;
+    margin-left: 100px;
+}
+
+#submitresult:hover
+{
+    transform: scale(1.1);
+}
+
+#submitresult:active
+{
+    transform: scale(0.9);
+    transition: .25s;
 }

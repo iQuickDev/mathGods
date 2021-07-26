@@ -13,7 +13,8 @@
     <header>
         <div class="header">
             <h1 class="title">Arithmetics - <span id="difficulty">[Difficulty]</span></h1>
-            <p id="desc" class="description">Arithmetic is a branch of mathematics that consists of the study of numbers,
+            <p id="desc" class="description">Arithmetic is a branch of mathematics that consists of the study of
+                numbers,
                 especially concerning the properties of the traditional operations on them—addition, subtraction,
                 multiplication, division, exponentiation and extraction of roots. Arithmetic is an elementary part of
                 number theory, and number theory is considered to be one of the top-level divisions of modern
@@ -36,14 +37,30 @@
     </header>
     <main>
         <div id="playground">
-            <h2 id="timeleft">[Time]</h2>
-            <h2 id="answerscount">[AC]</h2>
-            <h2 id="questionscount">[QC]</h2>
-            <h2 id="countdivider">/</h2>
-            <h1 id="question">[Question]</h1>
+            <table id="gameinfo">
+                <thead>
+                    <th><span id="answerscountlabel">Answers</span></th>
+                    <th><span id="questionscountlabel">Questions</span></th>
+                    <th><span id="questionlabel">Question</span></th>
+                    <th><span id="timeleftlabel">Time</span></th>
+                </thead>
+                <tbody>
+                    <td><span id="answerscount">[AC]</span></td>
+                    <td> <span id="questionscount">[QC]</span></td>
+                    <td> <span id="question">[Question]</span></td>
+                    <td> <span id="timeleft">[Time]</span></td>
+                </tbody>
+            </table>
+            <div id="canvasmenu">
+                <button id="pen"></button>
+                <button id="eraser"></button>
+                <button id="cleardrawing"></button>
+            </div>
             <canvas id="drawzone"></canvas>
-            <input id="answer" type="number" placeholder="Answer">
-            <button onclick="CheckResult()" id="submitresult">Submit</button>
+            <div id="answerpanel">
+                <input id="answer" type="number">
+                <button onclick="CheckResult()" id="submitresult">Submit</button>
+            </div>
         </div>
     </main>
     <script src="../scripts/arithmetics.js"></script>

@@ -146,8 +146,10 @@ function UpdateTimer()
 {
     if (timeleft >= 0)
     {
-        document.querySelector("#timeleft").innerHTML = timeleft.toString();
+        document.querySelector("#timeleft").innerHTML = timeleft.toString() + "s";
         timeleft--;
+        if (timeleft.toString().length < 2)
+        timeleft = "0" + timeleft;
     }
     else
     {

@@ -5,7 +5,7 @@ window.addEventListener("load", () => {
     // Size
 
     canvas.height = 600;
-    canvas.width = 800;
+    canvas.width = 1200;
 
     // Vars
 
@@ -23,6 +23,9 @@ window.addEventListener("load", () => {
         ctx.beginPath();
     }
 
+    const fixX = 178;
+    const fixY = 178;
+
     function Draw(e)
     {
         if (!drawing) return;
@@ -30,10 +33,10 @@ window.addEventListener("load", () => {
         ctx.lineCap = "round";
         ctx.strokeStyle = "white";
 
-        ctx.lineTo(e.clientX - 560, e.clientY - 180);
+        ctx.lineTo(e.clientX - fixX, e.clientY - fixY);
         ctx.stroke();
         ctx.beginPath();
-        ctx.moveTo(e.clientX - 560, e.clientY - 180);
+        ctx.moveTo(e.clientX - fixX, e.clientY - fixY);
     }
 
     // Events
