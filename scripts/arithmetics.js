@@ -169,9 +169,9 @@ function CheckResult()
 function EndGame()
 {
     localStorage.setItem("name", sessionStorage.getItem("username"));
-    localStorage.setItem("score", score);
-    localStorage.setItem("time", elapsedtime);
-    localStorage.setItem("gamedate", GetMatchDate());
+    localStorage.setItem("aritscore", score);
+    localStorage.setItem("arittime", elapsedtime);
+    localStorage.setItem("aritgamedate", GetMatchDate());
     UpdatePreviousMatch();
     timeleft = 0;
     clearInterval(UpdateTimer);
@@ -180,9 +180,9 @@ function EndGame()
 function UpdatePreviousMatch()
 {
     document.querySelector("#username").innerHTML = localStorage.getItem("name");
-    document.querySelector("#pscore").innerHTML = localStorage.getItem("score");
-    document.querySelector("#ptime").innerHTML = localStorage.getItem("time") + "s";
-    document.querySelector("#pdate").innerHTML = localStorage.getItem("gamedate");
+    document.querySelector("#pscore").innerHTML = localStorage.getItem("aritscore");
+    document.querySelector("#ptime").innerHTML = localStorage.getItem("arittime") + "s";
+    document.querySelector("#pdate").innerHTML = localStorage.getItem("aritgamedate");
 }
 
 function GetMatchDate()
