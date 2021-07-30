@@ -32,6 +32,23 @@
                     <li><span class="squareroot">√</span> Square root</li>
                 </ul>
             </div>
+            <div id="pmatches" class="pmatches">
+                <h3 id="boxtitle">Previous Match</h3>
+                <table class="matchlist">
+                    <thead>
+                        <th>Name</th>
+                        <th>Score</th>
+                        <th>Time</th>
+                        <th>Date</th>
+                    </thead>
+                    <tbody>
+                        <td id="username">[UN]</td>
+                        <td id="pscore">[SC]</td>
+                        <td id="ptime">[TM]</td>
+                        <td id="pdate">[AT]</td>
+                    </tbody>
+                </table>
+            </div>
             <button onclick="StartGame()" id="startgame">Start Game</button>
         </div>
     </header>
@@ -39,22 +56,24 @@
         <div id="playground">
             <table id="gameinfo">
                 <thead>
-                    <th><span id="answerscountlabel">Answers</span></th>
-                    <th><span id="questionscountlabel">Questions</span></th>
-                    <th><span id="questionlabel">Question</span></th>
-                    <th><span id="timeleftlabel">Time</span></th>
+                    <th>Answers</th>
+                    <th>Questions</th>
+                    <th>Score</th>
+                    <th>Question</th>
+                    <th>Time</th>
                 </thead>
                 <tbody>
                     <td><span id="answerscount">[AC]</span></td>
-                    <td> <span id="questionscount">[QC]</span></td>
-                    <td> <span id="question">[Question]</span></td>
-                    <td> <span id="timeleft">[Time]</span></td>
+                    <td><span id="questionscount">[QC]</span></td>
+                    <td><span id="score">[SC]</span></td>
+                    <td><span id="question">[Question]</span></td>
+                    <td><span id="timeleft">[Time]</span></td>
                 </tbody>
             </table>
             <div id="canvasmenu">
-                <button id="pen"></button>
-                <button id="eraser"></button>
-                <button id="cleardrawing"></button>
+                <button id="pen"><img src="../media/pen.png" width="40"></button>
+                <button id="eraser"><img src="../media/eraser.png" width="35"></button>
+                <button id="cleardrawing"><img src="../media/trash.png" width="35"></button>
             </div>
             <canvas id="drawzone"></canvas>
             <div id="answerpanel">

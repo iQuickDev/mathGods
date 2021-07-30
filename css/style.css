@@ -35,9 +35,8 @@ body {
     color: white;
     position: absolute;
     font-size: 1.5rem;
-    opacity: .6;
+    opacity: .4;
     cursor: pointer;
-    z-index: -1;
 }
 
 a.formula:link
@@ -62,7 +61,7 @@ a.formula:link
 .header {
     border-radius: 20px;
     background-color: #20202060;
-    width: 50rem;
+    width: 50%;
     margin: auto;
     padding-left: 10px;
     padding-right: 10px;
@@ -115,6 +114,7 @@ a.formula:link
 
 .selecttip {
     font-size: 2rem;
+    margin-bottom: 10px;
 }
 
 .spacer {
@@ -138,6 +138,7 @@ a.formula:link
 	transition: .8s;
     font-weight: 600;
     outline: none;
+    font-family: "Poppins", sans-serif;
 }
 
 /* Color Buttons */
@@ -304,7 +305,7 @@ a:hover {
     font-weight: 700;
     font-size: 14px;
     letter-spacing: 1px;
-    background: rgba(136, 126, 126, 0.04);
+    background: #303030;
     padding: 10px 10px;
     border: none;
     border-radius: 15px;

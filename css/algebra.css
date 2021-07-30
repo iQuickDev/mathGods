@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #00ff82;
+    overflow: hidden;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.header {
+    text-align: center;
+}
+
+.add {
+    color:#00FF00;
+    font-size: 1.5rem;
+}
+
+.subtract {
+    color:#FF0000;
+    font-size: 1.5rem;
+}
+
+.multiply {
+    color:rgb(0, 132, 255);
+    font-size: 1.5rem;
+}
+
+.divide {
+    color:yellow;
+    font-size: 1.5rem;
+}
+
+.exponent {
+    color: rgb(0, 132, 255);
+    font-size: 1.5rem;
+}
+
+.squareroot {
+    color: yellow;
+    font-size: 1.5rem;
+}
+
+.title {
+    font-size: 4rem;
+    padding-bottom: 20px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.description {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -50px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.operators
+{
+    text-align: center;
+    font-size: 1.2rem;
+    background: #202020;
+    width: 20%;
+    text-align: center;
+    margin: auto;
+    border-radius: 10px;
+    border: 1px solid black;
+    color: white;
+}
+
+#optitle
+{
+    background-color: #151515;
+    padding: 5px;
+    margin-top: 0px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.oplist 
+{
+    text-align: center;
+    list-style: none;
+    padding: 0;
+    margin-top: -15px;
+    color: gray;
+}
+
+.oplist li
+{
+    padding: 5px;
+}
+
+#startgame {
+    cursor: pointer;
+    margin-top: 100px;
+    width: 300px;
+    height: 80px;
+    border-radius: 15px;
+    border: 2px solid black;
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(225deg, #7f00ff, #e100ff);
+    transition: .75s;
+}
+
+#startgame:hover
+{
+    transform: scale(1.15);
+    transition: .75s;
+}
+
+#startgame:active
+{
+    transform: scale(0.9);
+    transition: .25s;
+}
+
+@keyframes buttonmoveaway
+{
+    from {
+        transform: translateX(0px) rotate(0deg) translateY(0px); opacity: 1;
+    }
+    to {
+        transform: translateX(1000px) rotate(90deg) translateY(-1000px); opacity: 0;
+    }
+}
+
+@keyframes descriptionfall
+{
+    from {
+        transform: translateX(0px); opacity: 1;
+    }
+    to {
+        transform: translateX(-1800px); opacity: 0;
+    }
+}
+
+@keyframes moveoperatorslist
+{
+    0% {
+        transform: translateX(0px) translateY(0px);
+    }
+    50% {
+        transform: translateX(700px) translateY(0px);
+    }
+    100% {
+        transform: translateX(700px) translateY(-180px);
+    }
+}
+
+
+#playground {
+    background-color: #202020;
+    color: white;
+    border-radius: 15px;
+    border: 1px solid black;
+    width: 70%;
+    margin-left: 100px;
+    height: 80vh;
+    display: none;
+    text-align: center;
+}
+
+@keyframes playgroundmoveup
+{
+    from {
+        transform: translateY(300px);
+    }
+    to {
+        transform: translateY(-700px);
+    }
+}
+
+#gameinfo {
+    width: 100%;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #252525;
+    margin-bottom: 20px;
+}
+
+
+#answer
+{
+    color: transparent;
+    text-shadow: 0 0 0px white;
+    display: inline;
+    outline: none;
+    width: 100px;
+    height: 25px;
+    background-color: #252525;
+    border-radius: 10px;
+    border: 1px solid #151515;
+    font-size: 1.6rem;
+    font-family: "Poppins", sans-serif;
+    padding: 10px;
+    margin: auto;
+    font-weight: 600;
+    text-align: center;
+}
+
+#answer:focus
+{
+    border: 1px solid #0489fb;
+    transition: 1s;
+}
+
+#drawzone
+{
+    margin-left: 35px;
+    border-radius: 5px;
+    border: 1px solid #151515;
+    background-color: #303030;
+    margin-top: -380px;
+}
+
+#canvasmenu
+{
+    width: 50px;
+    height: 150px;
+    margin-left: 15px;
+    margin-top: 250px;
+}
+
+#canvasmenu button
+{
+    border-radius: 10px;
+    border: 1px solid #151515;
+    transition: .5s;
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #252525;
+}
+
+#pen:hover
+{
+    transform: scale(1.1);
+}
+
+#pen:active
+{
+    transform: scale(0.9);
+    transition: .25s;
+}
+
+#eraser:hover
+{
+    transform: scale(1.1);
+}
+
+#eraser:active
+{
+    transform: scale(0.9);
+    transition: .25s;
+}
+
+#cleardrawing:hover
+{
+    transform: scale(1.1);
+}
+
+#cleardrawing:active
+{
+    transform: scale(0.9);
+    transition: .25s;
+}
+
+
+#submitresult
+{
+    width: 100px;
+    height: 40px;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    border: none;
+    background: linear-gradient(45deg, #00ff6e, #00ff3b);
+    transition: .5s;
+    font-weight: 600;
+    margin-left: 100px;
+}
+
+#submitresult:hover
+{
+    transform: scale(1.1);
+}
+
+#submitresult:active
+{
+    transform: scale(0.9);
+    transition: .25s;
+}
+
+#canvasmenu img
+{
+    margin-top: 5px;
+}

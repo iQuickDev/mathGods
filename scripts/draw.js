@@ -10,6 +10,25 @@ window.addEventListener("load", () => {
     // Vars
 
     let drawing = false;
+    var color = "#FFFFFF";
+    var thickness = 5;
+
+    function SelectPen()
+    {
+        color = "#FFFFFF";
+        thickness = 5;
+    }
+
+    function SelectEraser()
+    {
+        color = "#303030";
+        thickness = 30;
+    }
+
+    function ClearArea()
+    {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
 
     function StartPos(e)
     {
@@ -23,15 +42,15 @@ window.addEventListener("load", () => {
         ctx.beginPath();
     }
 
-    const fixX = 178;
-    const fixY = 178;
+    const fixX = 190;
+    const fixY = 190;
 
     function Draw(e)
     {
         if (!drawing) return;
-        ctx.lineWidth = 3;
+        ctx.lineWidth = thickness;
         ctx.lineCap = "round";
-        ctx.strokeStyle = "white";
+        ctx.strokeStyle = color;
 
         ctx.lineTo(e.clientX - fixX, e.clientY - fixY);
         ctx.stroke();
@@ -44,6 +63,10 @@ window.addEventListener("load", () => {
     canvas.addEventListener("mousedown", StartPos);
     canvas.addEventListener("mouseup", FinishedPos);
     canvas.addEventListener("mousemove", Draw);
+    document.querySelector("#pen").addEventListener("click",SelectPen);
+    document.querySelector("#eraser").addEventListener("click",SelectEraser);
+    document.querySelector("#cleardrawing").addEventListener("click",ClearArea);
+    document.querySelector("#submitresult").addEventListener("click",ClearArea);
 
 });
 

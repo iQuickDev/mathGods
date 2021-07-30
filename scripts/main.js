@@ -23,8 +23,9 @@ var subtitles =
                 "I only date 160cm > x < +∞cm girls",                                                // 17
                 "OMG LOOK AT THAT, 2π NOSCOPE!!!",                                                   // 18
                 "Always stay x > -∞",                                                                // 19
-                "EVERYBODY GANGSTA UNTIL YOU SEE <b>∫<b>"                                            // 20
-
+                "EVERYBODY GANGSTA UNTIL YOU SEE <b>∫<b>",                                           // 20
+                "y = sin(x) do be kinda curvy 😳",                                                   // 21
+                "GL & HF, it's free enjoyment :)",                                                   // 22
 ]
 
 function start()

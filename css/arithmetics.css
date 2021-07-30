@@ -63,7 +63,7 @@ input::-webkit-inner-spin-button {
     font-size: 1.2rem;
 }
 
-.operators
+#opbox
 {
     text-align: center;
     font-size: 1.2rem;
@@ -99,6 +99,49 @@ input::-webkit-inner-spin-button {
     padding: 5px;
 }
 
+#pmatches
+{    
+    text-align: center;
+    font-size: 1.2rem;
+    background: #202020;
+    margin-left: auto;
+    width: 20%;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid black;
+    color: white;
+    display: none;
+}
+
+#pmatches table,td
+{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#boxtitle
+{
+    background-color: #151515;
+    padding: 5px;
+    margin-top: 0px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+@keyframes previousmatchesmoveup
+{
+from {
+transform: translateY(350px) translateX(850px);
+}
+
+to {
+transform: translateY(-260px) translateX(850px);
+}
+}
+
 #startgame {
     cursor: pointer;
     margin-top: 100px;
@@ -109,9 +152,8 @@ input::-webkit-inner-spin-button {
     font-size: 2rem;
     font-weight: 700;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to right, #1461eb, #02b3fd);
-    box-shadow: 0 0 5px black;
-    overflow: hidden;
+    background: linear-gradient(225deg, #7f00ff, #e100ff);
+    transition: .75s;
 }
 
 #startgame:hover
@@ -170,6 +212,7 @@ input::-webkit-inner-spin-button {
     height: 80vh;
     display: none;
     text-align: center;
+    margin-top: -50px;
 }
 
 @keyframes playgroundmoveup
@@ -191,7 +234,6 @@ input::-webkit-inner-spin-button {
     margin-bottom: 20px;
 }
 
-
 #answer
 {
     color: transparent;
@@ -209,6 +251,12 @@ input::-webkit-inner-spin-button {
     margin: auto;
     font-weight: 600;
     text-align: center;
+}
+
+#answer:focus
+{
+    border: 1px solid #0489fb;
+    transition: 1s;
 }
 
 #drawzone
@@ -274,7 +322,6 @@ input::-webkit-inner-spin-button {
     transition: .25s;
 }
 
-
 #submitresult
 {
     width: 100px;
@@ -298,3 +345,9 @@ input::-webkit-inner-spin-button {
     transform: scale(0.9);
     transition: .25s;
 }
+
+#canvasmenu img
+{
+    margin-top: 5px;
+}
+
