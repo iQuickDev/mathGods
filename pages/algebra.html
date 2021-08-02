@@ -35,6 +35,23 @@
                     <li><span class="squareroot">√</span> Square root</li>
                 </ul>
             </div>
+            <div id="pmatches" class="pmatches">
+                <h3 id="boxtitle">Previous Game</h3>
+                <table class="matchlist">
+                    <thead>
+                        <th>Name</th>
+                        <th>Score</th>
+                        <th>Time</th>
+                        <th>Date</th>
+                    </thead>
+                    <tbody>
+                        <td id="username">[UN]</td>
+                        <td id="pscore">[SC]</td>
+                        <td id="ptime">[TM]</td>
+                        <td id="pdate">[AT]</td>
+                    </tbody>
+                </table>
+            </div>
             <button onclick="StartGame()" id="startgame">Start Game</button>
         </div>
     </header>
@@ -69,6 +86,7 @@
         </div>
     </main>
     <script src="../scripts/algebra.js"></script>
+    <script src="../scripts/math.js" type="module"></script>
     <script src="../scripts/draw.js"></script>
 </body>
 

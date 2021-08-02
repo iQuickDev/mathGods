@@ -201,6 +201,10 @@ transform: translateY(-260px) translateX(850px);
     }
 }
 
+#difficulty
+{
+    text-shadow: 0 0 5px black;
+}
 
 #playground {
     background-color: #202020;
