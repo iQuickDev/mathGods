@@ -103,6 +103,7 @@ function GenerateQuestion() {
                 firstoperand = Randomizer(1, 9).toString(); 
                 secondoperand = Randomizer(1, 9).toString(); 
                 variableoperand = Randomizer(1, 9).toString() + "x"; 
+
                 operands[0] = firstoperand; 
                 operands[1] = secondoperand; 
                 operands[2] = variableoperand; 
@@ -225,10 +226,8 @@ function GenerateQuestion() {
 }
 
 function CheckResult() {
-    // calculate the result
-    import { simplify } from "math.js";
-    result = simplify(questionstring);
-    console.log(result);
+
+    // calculate the result    
 
     // confront the result
 
