@@ -3,10 +3,17 @@ window.addEventListener("load", () => {
     const ctx = canvas.getContext("2d");
     
     // Size
-
-    canvas.height = 600;
-    canvas.width = 1200;
-
+    if (window.screen.width == "1920" && window.screen.height == "1080")
+    {
+        canvas.height = 600;
+        canvas.width = 1200;
+    }
+    else if (window.screen.width == "1200" && window.screen.height == "720")
+    {
+        canvas.height = 430;
+        canvas.width = 700;
+    }
+    
     // Vars
 
     let drawing = false;
@@ -67,6 +74,5 @@ window.addEventListener("load", () => {
     document.querySelector("#eraser").addEventListener("click",SelectEraser);
     document.querySelector("#cleardrawing").addEventListener("click",ClearArea);
     document.querySelector("#submitresult").addEventListener("click",ClearArea);
-
 });
 
