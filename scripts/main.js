@@ -1,4 +1,4 @@
-window.addEventListener('load', start);
+window.addEventListener('load', Start);
 var subtitlestring = document.getElementById("subtitlefield").innerHTML;
 
 var subtitles = 
@@ -28,7 +28,7 @@ var subtitles =
                 "GL & HF, it's free enjoyment :)",                                                   // 22
 ]
 
-function start()
+function Start()
 {
     let randomint = Math.floor(Math.random() * 20);
     document.getElementById("subtitlefield").innerHTML = subtitles[randomint];
@@ -154,27 +154,34 @@ function ShuffleFormulas()
     }
 }
 
-function AnimateFormulas()
-{
-    let counter = 0;
-    let animations = [];
+$(document).ready(function () {
+    animateElement("#formula1");
+    animateElement("#formula2");
+    animateElement("#formula3");
+    animateElement("#formula4");
+    animateElement("#formula5");
+    animateElement("#formula6");
+    animateElement("#formula7");
+    animateElement("#formula8");
+  });
+  
+  function makeNewPosition()
+  {
 
-    for (var i = 0; i < formulas.length; i++)
-    {
-        let posX = Randomizer(0, 100);
-        let posY = Randomizer(0, 100);
-        let delay = Randomizer(1, 5);
+    var h = $(window).height() - 50;
+    var w = $(window).width() - 50;
 
-        animations.push( `@keyframes formula${counter}
-        {
-            from {transform: translate(0px, 0px)}
-            to {transform: translate(${posX} + ${posY})}
-        }`);
-
-        let animationName = `formula${counter} ${delay}s linear infinite`;
-
-        formulas[i].style.animation = animationName;
-
-        counter++;
-    }
-}
+    var nh = Math.floor(Math.random() * h);
+    var nw = Math.floor(Math.random() * w);
+  
+    return [nh, nw];
+  }
+  
+  function animateElement(element)
+  {
+    var newq = makeNewPosition();
+    $(element).animate({ top: newq[0], left: newq[1] }, 1500, function () {
+      animateElement(element);
+    });
+  }
+  
