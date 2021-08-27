@@ -41,6 +41,7 @@ function PageLoad()
 
 function StartGame()
 {
+    // display animations
     document.querySelector("#desc").style.animation = "descriptionfall 1.5s linear forwards";
     document.querySelector("#startgame").style.animation = "buttonmoveaway 1s linear forwards";
     document.querySelector("#opbox").style.animation = "moveoperatorslist 2s linear forwards";
@@ -97,29 +98,30 @@ function GenerateQuestion()
     {
         case "easy":
         {
-            firstoperand = Randomizer(1, 9);
-            secondoperand = Randomizer(1, 9);
-            operator = operands[Randomizer(0, 3)];
+            FillQuestion(1, 9, 2);
             break;
         }
 
         case "medium":
         {
-            firstoperand = Randomizer(10, 99);
-            secondoperand = Randomizer(10, 99);
-            operator = operands[Randomizer(0, 3)];
+            FillQuestion(10, 99, 3);
             break;
         }
 
         case "hard":
         {           
-            firstoperand = Randomizer(100, 999);
-            secondoperand = Randomizer(100, 999);
-            operator = operands[Randomizer(0, 3)];
+            FillQuestion(100, 999, 3);
             break;
         }
     }
-    document.querySelector("#question").innerHTML = (firstoperand  + " " + operator + " " + secondoperand).toString();
+    document.querySelector("#question").innerHTML = (firstoperand  + " " + operator + " " + secondoperand);
+}
+
+function FillQuestion(opMin, opMax, allowedOperations)
+{
+    firstoperand = Randomizer(opMin, opMax);
+    secondoperand = Randomizer(opMin, opMax);
+    operator = operands[Randomizer(0, allowedOperations)];
 }
 
 function CheckResult()
@@ -154,7 +156,7 @@ function CheckResult()
             
     }
 
-    // confront the result
+    // compare the result
 
     if (document.querySelector("#answer").value == result)
     {

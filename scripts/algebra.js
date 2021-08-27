@@ -11,6 +11,7 @@ var answerscount = 0;
 var previousmatch = ["", "", "", ""];
 var elapsedtime = 0;
 var isPlaying = false;
+var questionstring = "";
 
 window.addEventListener("load", PageLoad);
 
@@ -92,150 +93,133 @@ function delShiftLeft(arr, index) {
 
 function GenerateQuestion() {
 
-    let isEqualsPresent = false;
-    let operands = [];
-    let question = [];
-    let indexHolder = 0;
-
     switch (sessionStorage.getItem("difficulty")) {
         case "easy":
             {
-                firstoperand = Randomizer(1, 9).toString(); 
-                secondoperand = Randomizer(1, 9).toString(); 
-                variableoperand = Randomizer(1, 9).toString() + "x"; 
-
-                operands[0] = firstoperand; 
-                operands[1] = secondoperand; 
-                operands[2] = variableoperand; 
-
-                indexHolder = Randomizer(0, 2); 
-                question[0] = operands[indexHolder].toString(); 
-                operands = delShiftLeft(operands, indexHolder);
-
-                indexHolder = Randomizer(0, 2); 
-                question[1] = operators[indexHolder];
-
-                if (indexHolder == 2)
-                    isEqualsPresent = true;
-
-                indexHolder = Randomizer(0, 1);
-                question[2] = operands[indexHolder].toString();
-                operands = delShiftLeft(operands, indexHolder);
-
-                if (isEqualsPresent) {
-                    indexHolder = Randomizer(0, 1);
-                    question[3] = operators[indexHolder].toString();
-                }
-                else {
-                    question[3] = "=";
-                    isEqualsPresent = true;
-                }
-
-                question[4] = operands[0].toString();
-
-                var questionstring = "";
-                for (let i = 0; i < question.length; i++) {
-                    questionstring += question[i];
-                }
+                FillQuestion(1, 9);
                 break;
             }
 
         case "medium":
             {
-                firstoperand = Randomizer(10, 99).toString(); 
-                secondoperand = Randomizer(10, 99).toString(); 
-                variableoperand = Randomizer(10, 99).toString() + "x"; 
-                operands[0] = firstoperand; 
-                operands[1] = secondoperand; 
-                operands[2] = variableoperand; 
-
-                indexHolder = Randomizer(0, 2); 
-                question[0] = operands[indexHolder].toString(); 
-                operands = delShiftLeft(operands, indexHolder);
-
-                indexHolder = Randomizer(0, 2); 
-                question[1] = operators[indexHolder];
-
-                if (indexHolder == 2)
-                    isEqualsPresent = true;
-
-                indexHolder = Randomizer(0, 1);
-                question[2] = operands[indexHolder].toString();
-                operands = delShiftLeft(operands, indexHolder);
-
-                if (isEqualsPresent) {
-                    indexHolder = Randomizer(0, 1);
-                    question[3] = operators[indexHolder].toString();
-                }
-                else {
-                    question[3] = "=";
-                    isEqualsPresent = true;
-                }
-
-                question[4] = operands[0].toString();
-
-                var questionstring = "";
-                for (let i = 0; i < question.length; i++) {
-                    questionstring += question[i];
-                }
+                FillQuestion(10, 99);
                 break;
             }
 
         case "hard":
             {
-                firstoperand = Randomizer(100, 999).toString(); 
-                secondoperand = Randomizer(100, 999).toString(); 
-                variableoperand = Randomizer(100, 999).toString() + "x"; 
-                operands[0] = firstoperand; 
-                operands[1] = secondoperand; 
-                operands[2] = variableoperand; 
-
-                indexHolder = Randomizer(0, 2); 
-                question[0] = operands[indexHolder].toString(); 
-                operands = delShiftLeft(operands, indexHolder);
-
-                indexHolder = Randomizer(0, 2); 
-                question[1] = operators[indexHolder];
-
-                if (indexHolder == 2)
-                    isEqualsPresent = true;
-
-                indexHolder = Randomizer(0, 1);
-                question[2] = operands[indexHolder].toString();
-                operands = delShiftLeft(operands, indexHolder);
-
-                if (isEqualsPresent) {
-                    indexHolder = Randomizer(0, 1);
-                    question[3] = operators[indexHolder].toString();
-                }
-                else {
-                    question[3] = "=";
-                    isEqualsPresent = true;
-                }
-
-                question[4] = operands[0].toString();
-
-                var questionstring = "";
-                for (let i = 0; i < question.length; i++) {
-                    questionstring += question[i];
-                }
+                FillQuestion(100, 999);
                 break;
             }
     }
     document.querySelector("#question").innerHTML = questionstring;
 }
 
-function CheckResult() {
+function FillQuestion(opMin, opMax)
+{
+    questionstring = "";
+    let isEqualsPresent = false;
+    let operands = [];
+    let question = [];
+    let indexHolder = 0;
 
-    // calculate the result    
+    firstoperand = Randomizer(opMin, opMax).toString(); 
+    secondoperand = Randomizer(opMin, opMax).toString(); 
+    variableoperand = Randomizer(opMin, opMax) + "x"; 
 
-    // confront the result
+    operands[0] = firstoperand; 
+    operands[1] = secondoperand; 
+    operands[2] = variableoperand; 
 
-    if (document.querySelector("#answer").value == result) {
+    indexHolder = Randomizer(0, 2); 
+    question[0] = operands[indexHolder].toString(); 
+    operands = delShiftLeft(operands, indexHolder);
+
+    indexHolder = Randomizer(0, 2); 
+    question[1] = operators[indexHolder];
+
+    if (indexHolder == 2)
+        isEqualsPresent = true;
+
+    indexHolder = Randomizer(0, 1);
+    question[2] = operands[indexHolder].toString();
+    operands = delShiftLeft(operands, indexHolder);
+
+    if (isEqualsPresent) {
+        indexHolder = Randomizer(0, 1);
+        question[3] = operators[indexHolder].toString();
+    }
+    else {
+        question[3] = "=";
+        isEqualsPresent = true;
+    }
+
+    question[4] = operands[0].toString();
+
+    for (let i = 0; i < question.length; i++) {
+        questionstring += question[i];
+    }
+}
+
+function CheckResult()
+{  
+    var leftSideXTotal = 0;
+    var rightSideXTotal = 0; 
+    var leftSideIntTotal = 0;
+    var rightSideIntTotal = 0;
+    var question = questionstring;
+    question = question.replace(/\s/g, ''); 
+    question = question.replace(/-/gi, "+-"); 
+    var questionArray = question.split("=");
+    var questionLeftSide = questionArray[0];
+    var questionRightSide = questionArray[1];
+    var questionLeftSideValues = questionLeftSide.split("+");
+    var questionRightSideValues = questionRightSide.split("+");
+
+    for (var i = 0; i < questionLeftSideValues.length; i++)
+    {
+        var currentValue = questionLeftSideValues[i];
+        var currentValueLength = currentValue.length;
+
+        if (currentValue.charAt(currentValueLength - 1) == "x")
+        { 
+            currentValue = currentValue.split("x");
+            leftSideXTotal = Number(leftSideXTotal) + Number(currentValue[0]);
+        }
+        else
+            leftSideIntTotal = Number(leftSideIntTotal) + Number(questionLeftSideValues[i]);
+    }
+
+    for (var i = 0; i < questionRightSideValues.length; i++)
+    {
+        var currentValue = questionRightSideValues[i];
+        var currentValueLength = currentValue.length;
+
+        if (currentValue.charAt(currentValueLength - 1) == "x")
+        {
+            currentValue = currentValue.split("x");
+            rightSideXTotal = Number(rightSideXTotal) + Number(currentValue[0]);
+        }
+        else
+            rightSideIntTotal = Number(rightSideIntTotal) + Number(questionRightSideValues[i]);
+    }
+
+    var totalXs = (leftSideXTotal - rightSideXTotal)
+    var totalIntegers = (rightSideIntTotal - leftSideIntTotal)
+    result = (totalIntegers / totalXs)
+
+    if (document.querySelector("#answer").value.includes("/"))
+    {
+        let rawAnswer = document.querySelector("#answer").value;
+        let resolvedAnswer = rawAnswer.split("/");
+        resolvedAnswer = (resolvedAnswer[0] / resolvedAnswer[1]);
+        document.querySelector("#answer").value = resolvedAnswer;
+    }
+    if (document.querySelector("#answer").value == result)
+    {
         score++;
         document.querySelector("#score").innerHTML = score;
     }
-
     document.querySelector("#answer").value = "";
     NextQuestion();
 }

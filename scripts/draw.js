@@ -13,12 +13,14 @@ window.addEventListener("load", () => {
         canvas.height = 430;
         canvas.width = 700;
     }
-    
+
     // Vars
 
     let drawing = false;
     var color = "#FFFFFF";
     var thickness = 5;
+
+    // Functions
 
     function SelectPen()
     {
@@ -74,5 +76,7 @@ window.addEventListener("load", () => {
     document.querySelector("#eraser").addEventListener("click",SelectEraser);
     document.querySelector("#cleardrawing").addEventListener("click",ClearArea);
     document.querySelector("#submitresult").addEventListener("click",ClearArea);
+
+    console.log("%c" + "Drawing environment initialized", "color: #00FF00; font-size: 1.2rem");
 });
 

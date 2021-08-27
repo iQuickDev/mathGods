@@ -133,13 +133,13 @@ input::-webkit-inner-spin-button {
 
 @keyframes previousmatchesmoveup
 {
-from {
-transform: translateY(350px) translateX(850px);
-}
+    from {
+    transform: translateY(350px) translateX(850px);
+    }
 
-to {
-transform: translateY(-260px) translateX(850px);
-}
+    to {
+    transform: translateY(-300px) translateX(850px);
+    }
 }
 
 #startgame {
@@ -197,7 +197,7 @@ transform: translateY(-260px) translateX(850px);
         transform: translateX(700px) translateY(0px);
     }
     100% {
-        transform: translateX(700px) translateY(-180px);
+        transform: translateX(700px) translateY(-220px);
     }
 }
 
@@ -224,7 +224,7 @@ transform: translateY(-260px) translateX(850px);
         transform: translateY(300px);
     }
     to {
-        transform: translateY(-700px);
+        transform: translateY(-800px);
     }
 }
 
@@ -236,7 +236,6 @@ transform: translateY(-260px) translateX(850px);
     background-color: #252525;
     margin-bottom: 20px;
 }
-
 
 #answer
 {
@@ -261,6 +260,11 @@ transform: translateY(-260px) translateX(850px);
 {
     border: 1px solid #0489fb;
     transition: 1s;
+}
+
+#xtip
+{
+    font-size: 1.5rem;
 }
 
 #drawzone

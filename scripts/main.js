@@ -33,6 +33,7 @@ function start()
     let randomint = Math.floor(Math.random() * 20);
     document.getElementById("subtitlefield").innerHTML = subtitles[randomint];
     ShuffleFormulas();
+    AnimateFormulas();
 }
 
 function CenterArithmetics()
@@ -130,25 +131,50 @@ var formulas = document.getElementsByTagName("cite");
 var winWidth = window.innerWidth - 200;
 var winHeight = window.innerHeight - 200;
 
-function getRandomNumber(min, max) {
-    
+function Randomizer(min, max) 
+{
     return Math.random() * (max - min) + min;
-      
-  }
+}
 
 function ShuffleFormulas()
 {
-    for ( var i=0; i < formulas.length; i++ ) {
+    for (var i=0; i < formulas.length; i++)
+    {
  	
         // shortcut! the current div in the list
         var thisDiv = formulas[i];
         
         // get random numbers for each element
-        randomTop = getRandomNumber(0, winHeight);
-        randomLeft = getRandomNumber(0, winWidth);
+        randomTop = Randomizer(0, winHeight);
+        randomLeft = Randomizer(0, winWidth);
         
         // update top and left position
         thisDiv.style.top = randomTop +"px";
         thisDiv.style.left = randomLeft +"px";
+    }
+}
+
+function AnimateFormulas()
+{
+    let counter = 0;
+    let animations = [];
+
+    for (var i = 0; i < formulas.length; i++)
+    {
+        let posX = Randomizer(0, 100);
+        let posY = Randomizer(0, 100);
+        let delay = Randomizer(1, 5);
+
+        animations.push( `@keyframes formula${counter}
+        {
+            from {transform: translate(0px, 0px)}
+            to {transform: translate(${posX} + ${posY})}
+        }`);
+
+        let animationName = `formula${counter} ${delay}s linear infinite`;
+
+        formulas[i].style.animation = animationName;
+
+        counter++;
     }
 }
