@@ -197,7 +197,7 @@ input::-webkit-inner-spin-button {
         transform: translateX(700px) translateY(0px);
     }
     100% {
-        transform: translateX(700px) translateY(-170px);
+        transform: translateX(700px) translateY(-180px);
     }
 }
 
@@ -408,7 +408,7 @@ input::-webkit-inner-spin-button {
         transition: .5s;
         font-weight: 600;
     }
-    
+
     #drawzone
     {
         margin-left: 35px;
@@ -441,4 +441,27 @@ input::-webkit-inner-spin-button {
         font-size: 0.75rem;
     }
 
-}
+    @keyframes previousmatchesmoveup
+    {
+        from {
+        transform: translateY(350px) translateX(600px);
+        }
+
+        to {
+        transform: translateY(-180px) translateX(600px);
+        }
+    }
+
+    @keyframes moveoperatorslist
+    {
+        0% {
+            transform: translateX(0px) translateY(0px);
+        }
+        50% {
+            transform: translateX(450px) translateY(0px);
+        }
+        100% {
+            transform: translateX(450px) translateY(-160px);
+        }
+    }
+} 
