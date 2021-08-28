@@ -33,7 +33,6 @@ function Start()
     let randomint = Math.floor(Math.random() * 20);
     document.getElementById("subtitlefield").innerHTML = subtitles[randomint];
     ShuffleFormulas();
-    AnimateFormulas();
 }
 
 function CenterArithmetics()
@@ -167,13 +166,8 @@ $(document).ready(function () {
   
   function makeNewPosition()
   {
-
-    var h = $(window).height() - 50;
-    var w = $(window).width() - 50;
-
-    var nh = Math.floor(Math.random() * h);
-    var nw = Math.floor(Math.random() * w);
-  
+    var nh = Math.floor(Math.random() * $(window).height() - 50);
+    var nw = Math.floor(Math.random() * $(window).width() - 50);
     return [nh, nw];
   }
   

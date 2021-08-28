@@ -347,6 +347,7 @@ input::-webkit-inner-spin-button {
 #submitresult:hover
 {
     transform: scale(1.1);
+    box-shadow: 0 0 10px #00ff3b;
 }
 
 #submitresult:active

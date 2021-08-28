@@ -8,7 +8,6 @@ var operator = "";
 var result = "";
 var timeleft = 60;
 var answerscount = 0;
-var previousmatch = ["", "", "", ""];
 var elapsedtime = 0;
 var isPlaying = false;
 var questionstring = "";
@@ -225,7 +224,7 @@ function CheckResult()
 }
 
 function EndGame() {
-    localStorage.setItem("name", sessionStorage.getItem("username"));
+    localStorage.setItem("algname", sessionStorage.getItem("username"));
     localStorage.setItem("algscore", score);
     localStorage.setItem("algtime", elapsedtime);
     localStorage.setItem("alggamedate", GetMatchDate());
@@ -234,11 +233,22 @@ function EndGame() {
     clearInterval(UpdateTimer);
 }
 
-function UpdatePreviousMatch() {
-    document.querySelector("#username").innerHTML = localStorage.getItem("name");
-    document.querySelector("#pscore").innerHTML = localStorage.getItem("algscore");
-    document.querySelector("#ptime").innerHTML = localStorage.getItem("algtime") + "s";
-    document.querySelector("#pdate").innerHTML = localStorage.getItem("alggamedate");
+function UpdatePreviousMatch()
+{
+    if (localStorage.getItem("algname") == null || localStorage.getItem("aritscore") == null || localStorage.getItem("arittime") == null || localStorage.getItem("aritgamedate") == null)
+    {
+        document.querySelector("#username").innerHTML = "&nbsp;";
+        document.querySelector("#pscore").innerHTML = "&nbsp;";
+        document.querySelector("#ptime").innerHTML = "&nbsp;";
+        document.querySelector("#pdate").innerHTML = "&nbsp;";
+    }
+    else
+    {
+        document.querySelector("#username").innerHTML = localStorage.getItem("algname");
+        document.querySelector("#pscore").innerHTML = localStorage.getItem("algscore");
+        document.querySelector("#ptime").innerHTML = localStorage.getItem("algtime") + "s";
+        document.querySelector("#pdate").innerHTML = localStorage.getItem("alggamedate");
+    }
 }
 
 function GetMatchDate() {

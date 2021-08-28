@@ -5,37 +5,121 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MathGods - Trigonometry</title>
+    <title>MathGods - Arithmetics</title>
     <link rel="stylesheet" href="../css/trigonometry.css">
 </head>
 
 <body>
     <header>
         <div class="header">
-            <h1 class="title">Trigonometry - <span id="difficulty">[Difficulty]</span> mode</h1>
-            <p class="description">Arithmetic is a branch of mathematics that consists of the study of numbers,
-                especially concerning the properties of the traditional operations on them—addition, subtraction,
-                multiplication, division, exponentiation and extraction of roots. Arithmetic is an elementary part of
-                number theory, and number theory is considered to be one of the top-level divisions of modern
-                mathematics, along with algebra, geometry, and analysis. The terms arithmetic and higher arithmetic were
-                used until the beginning of the 20th century as synonyms for number theory, and are sometimes still used
-                to refer to a wider part of number theory.</p>
-            <div class="operators">
-                <h3 id="optitle">You'll find these operators: </h3>
+            <h1 class="title">Trigonometry - <span id="difficulty">[Difficulty]</span></h1>
+            <p id="desc" class="description">Trigonometry is a branch of mathematics that studies relationships between
+                side lengths and angles of triangles. The field emerged in the Hellenistic world during the 3rd century
+                BC from applications of geometry to astronomical studies. The Greeks focused on the calculation of
+                chords, while mathematicians in India created the earliest-known tables of values for trigonometric
+                ratios (also called trigonometric functions) such as sine. Throughout history, trigonometry has been
+                applied in areas such as geodesy, surveying, celestial mechanics, and navigation. Trigonometry is known
+                for its many identities. These trigonometric identities are commonly used for rewriting trigonometrical
+                expressions with the aim to simplify an expression, to find a more useful form of an expression, or to
+                solve an equation.
+            </p>
+            <div id="opbox" class="operators">
+                <h3 id="optitle">Operators</h3>
                 <ul class="oplist">
                     <li><span class="add">+</span> Addition</li>
                     <li><span class="subtract">-</span> Subtraction</li>
                     <li><span class="multiply">×</span> Multiplication</li>
                     <li><span class="divide">÷</span> Division</li>
-                    <li><span class="exponent">nⁿ</span> Exponent</li>
+                    <li>n<span class="exponent">ⁿ</span> Exponent</li>
                     <li><span class="squareroot">√</span> Square root</li>
                 </ul>
             </div>
-            <button id="startgame">Start Game</button>
+            <div id="pmatches" class="pmatches">
+                <h3 id="boxtitle">Previous Game</h3>
+                <table class="matchlist">
+                    <thead>
+                        <th>Name</th>
+                        <th>Score</th>
+                        <th>Time</th>
+                        <th>Date</th>
+                    </thead>
+                    <tbody>
+                        <td id="username">[UN]</td>
+                        <td id="pscore">[SC]</td>
+                        <td id="ptime">[TM]</td>
+                        <td id="pdate">[AT]</td>
+                    </tbody>
+                </table>
+            </div>
+            <button onclick="StartGame()" id="startgame">Start Game</button>
         </div>
     </header>
     <main>
-        <div class="playground">
+        <div id="playground">
+            <table id="gameinfo">
+                <thead>
+                    <th>Answers</th>
+                    <th>Questions</th>
+                    <th>Score</th>
+                    <th>Question</th>
+                    <th>Time</th>
+                </thead>
+                <tbody>
+                    <td><span id="answerscount">[AC]</span></td>
+                    <td><span id="questionscount">[QC]</span></td>
+                    <td><span id="score">[SC]</span></td>
+                    <td><span id="question">[Question]</span></td>
+                    <td><span id="timeleft">[Time]</span></td>
+                </tbody>
+            </table>
+            <div id="labels">
+                <h2 id="labelSideA" class="triangleLabel">a</h2>
+                <h2 id="labelSideB" class="triangleLabel">b</h2>
+                <h2 id="labelSideC" class="triangleLabel">c</h2>
+                <h2 id="labelAngleAlpha" class="triangleLabel">α</h2>
+                <h2 id="labelAngleBeta" class="triangleLabel">β</h2>
+                <h2 id="labelAngleGamma" class="triangleLabel">γ</h2>
+            </div>
+            <div id="triangle">
+                <div id="sideA"></div>
+                <div id="sideB"></div>
+                <div id="sideC"></div>
+            </div>
+            <div id="answerpanel">
+                <div id="sides" class="valueBox">
+                    <h1 class="indicator">Sides</h1>
+                    <br>
+                    <div class="elementContainer">
+                        <input id="answerSideA" class="answerbox" type="number">
+                        <h2 id="indicatorSideA" class="indicator">a</h2>
+                    </div>
+                    <div class="elementContainer">
+                        <input id="answerSideB" class="answerbox" type="number">
+                        <h2 id="indicatorSideB" class="indicator">b</h2>
+                    </div>
+                    <div class="elementContainer">
+                        <input id="answerSideC" class="answerbox" type="number">
+                        <h2 id="indicatorSideC" class="indicator">c</h2>
+                    </div>
+                </div>
+                <div id="angles" class="valueBox">
+                    <h1 class="indicator">Angles</h1>
+                    <br>
+                    <div class="elementContainer">
+                        <input id="answerAngleAlpha" class="answerbox" type="number">
+                        <h2 id="indicatorAngleAlpha" class="indicator">α</h2>
+                    </div>
+                    <div class="elementContainer">
+                        <input id="answerAngleBeta" class="answerbox" type="number">
+                        <h2 id="indicatorAngleBeta" class="indicator">β</h2>
+                    </div>
+                    <div class="elementContainer">
+                        <input id="answerAngleGamma" class="answerbox" type="number">
+                        <h2 id="indicatorAngleGamma" class="indicator">γ</h2>
+                    </div>
+                </div>
+                <button onclick="CheckResult()" id="submitresult">Submit</button>
+            </div>
         </div>
     </main>
     <script src="../scripts/trigonometry.js"></script>

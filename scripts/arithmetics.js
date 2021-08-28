@@ -7,7 +7,6 @@ var operator = "";
 var result = "";
 var timeleft = 60;
 var answerscount = 0;
-var previousmatch = ["","","",""];
 var elapsedtime = 0;
 var isPlaying = false;
 
@@ -170,7 +169,7 @@ function CheckResult()
 
 function EndGame()
 {
-    localStorage.setItem("name", sessionStorage.getItem("username"));
+    localStorage.setItem("aritname", sessionStorage.getItem("username"));
     localStorage.setItem("aritscore", score);
     localStorage.setItem("arittime", elapsedtime);
     localStorage.setItem("aritgamedate", GetMatchDate());
@@ -181,10 +180,20 @@ function EndGame()
 
 function UpdatePreviousMatch()
 {
-    document.querySelector("#username").innerHTML = localStorage.getItem("name");
-    document.querySelector("#pscore").innerHTML = localStorage.getItem("aritscore");
-    document.querySelector("#ptime").innerHTML = localStorage.getItem("arittime") + "s";
-    document.querySelector("#pdate").innerHTML = localStorage.getItem("aritgamedate");
+    if (localStorage.getItem("aritname") == null || localStorage.getItem("aritscore") == null || localStorage.getItem("arittime") == null || localStorage.getItem("aritgamedate") == null)
+    {
+        document.querySelector("#username").innerHTML = "&nbsp;";
+        document.querySelector("#pscore").innerHTML = "&nbsp;";
+        document.querySelector("#ptime").innerHTML = "&nbsp;";
+        document.querySelector("#pdate").innerHTML = "&nbsp;";
+    }
+    else
+    {
+        document.querySelector("#username").innerHTML = localStorage.getItem("aritname");
+        document.querySelector("#pscore").innerHTML = localStorage.getItem("aritscore");
+        document.querySelector("#ptime").innerHTML = localStorage.getItem("arittime") + "s";
+        document.querySelector("#pdate").innerHTML = localStorage.getItem("aritgamedate");
+    }
 }
 
 function GetMatchDate()
