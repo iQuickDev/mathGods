@@ -94,10 +94,10 @@ function Randomizer(min, max)
 
 function toDegrees(value)
 {
-    return value * 180 / Math.PI;
+    return value * (180 / Math.PI);
 }
 
-function LawOfCosine(side)
+function ReverseLawOfCosine(side)
 {
     switch (side)
     {
@@ -108,6 +108,40 @@ function LawOfCosine(side)
         case "c":
             return ((Math.pow(a, 2) + Math.pow(b, 2) - Math.pow(c, 2)) / (2 * a * b));
     }
+}
+
+function ReverseLawOfSine(side)
+{
+    switch (side)
+    {
+        case "a":
+            return ((b * Math.sin(alpha)) / Math.sin(beta));
+        case "b":
+            return ((a * Math.sin(beta)) / Math.sin(alpha));
+        case "c":
+            return ((a * Math.sin(gamma)) / Math.sin(alpha));
+    }
+}
+
+function delShiftLeft(arr, index)
+{
+    return arr.slice(0, index).concat(arr.slice(index + 1));
+}
+
+function ResetTriangle()
+{
+    a = 0;
+    b = 0;
+    c = 0;
+    alpha = 0;
+    beta = 0;
+    gamma = 0;
+    document.querySelector("#answerSideA").readOnly = false;
+    document.querySelector("#answerSideB").readOnly = false;
+    document.querySelector("#answerSideC").readOnly = false;
+    document.querySelector("#answerAngleAlpha").readOnly = false;
+    document.querySelector("#answerAngleBeta").readOnly = false;
+    document.querySelector("#answerAngleGamma").readOnly = false;
 }
 
 function GenerateQuestion()
@@ -143,25 +177,67 @@ function GenerateProblem(type)
             a = Randomizer(20, 25);
             b = Randomizer(13, 17);
             c = Randomizer(13, 19);
-            alpha = Math.round(toDegrees(Math.acos(LawOfCosine("a"))));
-            beta = Math.round(toDegrees(Math.acos(LawOfCosine("b"))));
-            gamma = Math.round(toDegrees(Math.acos(LawOfCosine("c"))));
+            document.querySelector("#answerSideA").readOnly = true;
+            document.querySelector("#answerSideB").readOnly = true;
+            document.querySelector("#answerSideC").readOnly = true;
+            document.querySelector("#answerSideA").value = a;
+            document.querySelector("#answerSideB").value = b;
+            document.querySelector("#answerSideC").value = c;
+            alpha = Math.round(toDegrees(Math.acos(ReverseLawOfCosine("a"))));
+            beta = Math.round(toDegrees(Math.acos(ReverseLawOfCosine("b"))));
+            gamma = Math.round(toDegrees(Math.acos(ReverseLawOfCosine("c"))));
             break;
 
         case "ASA":
-            let angles = ["alpha","beta","gamma"]
+            let totalAnglesSum = 180;
+            let index = 0;
+            index = Randomizer(1, 3);
 
+            switch (index)
+            {
+                case 1:
+                a = Randomizer(20, 25);
+                    break;
+                case 2:
+                b = Randomizer(13, 17);
+                    break;
+                case 3:
+                c = Randomizer(13, 19);
+                    break;
+            }
+
+            alpha = Randomizer(1, 80);
+            beta = Randomizer(1, 80);
+            gamma = totalAnglesSum - alpha - beta;
+
+            if (a == 0 && b == 0)
+            {
+                a = Math.round(((c * Math.sin(alpha * (Math.PI / 180))) / Math.sin(gamma * (Math.PI / 180))));
+                b = Math.round(((c * Math.sin(beta * (Math.PI / 180))) / Math.sin(gamma * (Math.PI / 180))));
+            }
+            if (a == 0 && c == 0)
+            {
+                a = Math.round(((b * Math.sin(alpha * (Math.PI / 180))) / Math.sin(beta * (Math.PI / 180))));
+                c = Math.round(((b * Math.sin(gamma * (Math.PI / 180))) / Math.sin(beta * (Math.PI / 180))));
+            }
+            if (b == 0 && c == 0)
+            {
+                b = Math.round(((a * Math.sin(beta * (Math.PI / 180))) / Math.sin(alpha * (Math.PI / 180))));
+                c = Math.round(((a * Math.sin(gamma * (Math.PI / 180))) / Math.sin(alpha * (Math.PI / 180))));
+            }
             break;
-
-        case "AAS":
-                break;
                 
         case "SAS":
-                break;
+            break;
     }
 
-    console.table([["a", "b", "c", "alpha", "beta", "gamma"], [a, b , c, alpha, beta, gamma]]);
-    console.table([["b + c > a", "b - c < a"], [b + c > a, b - c < a]])
+    console.table([
+    ["a", "b", "c", "alpha", "beta", "gamma"],
+    [a, b , c, alpha, beta, gamma],
+    ["#1", "#2", "180deg"],
+    [b + c > a, b - c < a, alpha + beta + gamma == 180]]);
+    
+    ResetTriangle();
 }
 
 function CheckResult()

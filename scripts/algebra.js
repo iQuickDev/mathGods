@@ -84,10 +84,9 @@ function Randomizer(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function delShiftLeft(arr, index) {
-
+function delShiftLeft(arr, index)
+{
     return arr.slice(0, index).concat(arr.slice(index + 1));
-
 }
 
 function GenerateQuestion() {
