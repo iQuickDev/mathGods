@@ -1,0 +1,1 @@
+// this script will be used in the future to store all shared functions between the scripts for better code readability and understanding //

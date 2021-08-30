@@ -4,35 +4,45 @@ var subtitlestring = document.getElementById("subtitlefield").innerHTML;
 var subtitles = 
 [
 
-                "Squeeze your Brain.",                                                               // 1
-                "One Calculation a day keeps the Teacher away.",                                     // 2
-                "Pure mathematics is, in it's way, the poetry of logical Ideas.",                    // 3
-                "Don't worry if you suck, I do too.",                                                // 4
-                "Brain power: e<sup>i&pi;</sup>",                                                    // 5
-                "Just because we can’t find a solution, it doesn’t mean there isn’t one.",           // 6
-                "Math is not an opinion, it's purely based on Facts.",                               // 7
-                "In mathematics, you don’t understand things. You just get used to them.",           // 8
-                "Math is everywhere, even in your pockets.",                                         // 9
-                "Two plus Two is Four minus One that's Three, quick Maths.",                         // 10
-                "Fibonacci's playground",                                                            // 11
-                "Imagine using your fingers to count",                                               // 12
-                "Not all facts can be demonstrated",                                                 // 13
-                "Did you know that pringles are z = x²/a² - y² / b², x² / a² + y² / b² < 1 ?",       // 14
-                "Did you know that when guys pee they form a parable similar to y = -x² + 4x ?",     // 15
-                "Always remember that Δ = b² - 4ac",                                                 // 16
-                "I only date 160cm > x < +∞cm girls",                                                // 17
-                "OMG LOOK AT THAT, 2π NOSCOPE!!!",                                                   // 18
-                "Always stay x > -∞",                                                                // 19
-                "EVERYBODY GANGSTA UNTIL YOU SEE <b>∫<b>",                                           // 20
-                "y = sin(x) do be kinda curvy 😳",                                                   // 21
-                "GL & HF, it's free enjoyment :)",                                                   // 22
+                "Squeeze your Brain.",                                                                 // 1
+                "One Calculation a day keeps the Teacher away.",                                       // 2
+                "Pure mathematics is, in it's way, the poetry of logical Ideas.",                      // 3
+                "Don't worry if you suck, I do too.",                                                  // 4
+                "Brain power: e<sup>i&pi;</sup>",                                                      // 5
+                "Just because we can’t find a solution, it doesn’t mean there isn’t one.",             // 6
+                "Math is not an opinion, it's purely based on Facts.",                                 // 7
+                "In mathematics, you don’t understand things. You just get used to them.",             // 8
+                "Math is everywhere, even in your pockets.",                                           // 9
+                "Two plus Two is Four minus One that's Three, quick Maths.",                           // 10
+                "Fibonacci's playground",                                                              // 11
+                "Imagine using your fingers to count",                                                 // 12
+                "Not all facts can be demonstrated",                                                   // 13
+                "Did you know that pringles are z = x²/a² - y² / b², x² / a² + y² / b² < 1 ?",         // 14
+                "Always remember that Δ = b² - 4ac",                                                   // 15
+                "I only date 160cm > x < +∞cm people",                                                 // 16
+                "OMG LOOK AT THAT, 2π NOSCOPE!!!",                                                     // 17
+                "Always stay x > -∞",                                                                  // 18
+                "EVERYBODY GANGSTA UNTIL YOU SEE <b>∫</b>",                                            // 19
+                "y = sin(x) do be kinda curvy",                                                        // 20
+                "GL & HF, it's free enjoyment :)",                                                     // 21
+                "Students, apologies if the teacher is using this website against you :(",             // 22
+                "When you're so bored that you just start solving math problems",                      // 23
+                "LMAO, i used to hate math and now i made a website about it",                         // 24
+                "Always calculate the <b>conditional probability</b> of success before doing anything",// 25
 ]
 
 function Start()
 {
-    let randomint = Math.floor(Math.random() * 20);
+    let randomint = Math.floor(Math.random() * (subtitles.length - 1));
     document.getElementById("subtitlefield").innerHTML = subtitles[randomint];
-    ShuffleFormulas();
+    animateElement("#formula1");
+    animateElement("#formula2");
+    animateElement("#formula3");
+    animateElement("#formula4");
+    animateElement("#formula5");
+    animateElement("#formula6");
+    animateElement("#formula7");
+    animateElement("#formula8");
 }
 
 function CenterArithmetics()
@@ -134,35 +144,6 @@ function Randomizer(min, max)
 {
     return Math.random() * (max - min) + min;
 }
-
-function ShuffleFormulas()
-{
-    for (var i=0; i < formulas.length; i++)
-    {
- 	
-        // shortcut! the current div in the list
-        var thisDiv = formulas[i];
-        
-        // get random numbers for each element
-        randomTop = Randomizer(0, winHeight);
-        randomLeft = Randomizer(0, winWidth);
-        
-        // update top and left position
-        thisDiv.style.top = randomTop +"px";
-        thisDiv.style.left = randomLeft +"px";
-    }
-}
-
-$(document).ready(function () {
-    animateElement("#formula1");
-    animateElement("#formula2");
-    animateElement("#formula3");
-    animateElement("#formula4");
-    animateElement("#formula5");
-    animateElement("#formula6");
-    animateElement("#formula7");
-    animateElement("#formula8");
-  });
   
   function makeNewPosition()
   {
@@ -171,11 +152,12 @@ $(document).ready(function () {
     return [nh, nw];
   }
   
-  function animateElement(element)
-  {
+function animateElement(element)
+{
     var newq = makeNewPosition();
-    $(element).animate({ top: newq[0], left: newq[1] }, 1500, function () {
+    $(element).animate({ top: newq[0], left: newq[1] }, 1500, function()
+    {
       animateElement(element);
     });
-  }
+}
   
