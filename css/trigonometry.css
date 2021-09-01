@@ -198,7 +198,7 @@ input::-webkit-inner-spin-button {
         transform: translateX(700px) translateY(0px);
     }
     100% {
-        transform: translateX(700px) translateY(-220px);
+        transform: translateX(700px) translateY(-200px);
     }
 }
 
@@ -225,7 +225,7 @@ input::-webkit-inner-spin-button {
         transform: translateY(300px);
     }
     to {
-        transform: translateY(-800px);
+        transform: translateY(-780px);
     }
 }
 
