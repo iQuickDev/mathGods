@@ -17,7 +17,7 @@ var answerAngleAlpha = document.querySelector("#answerAngleAlpha");
 var answerAngleBeta = document.querySelector("#answerAngleBeta");
 var answerAngleGamma = document.querySelector("#answerAngleGamma");
 
-window.addEventListener("load",PageLoad);
+window.addEventListener("load", PageLoad);
 
 function PageLoad()
 {
@@ -52,7 +52,7 @@ function StartGame()
     document.querySelector("#startgame").style.animation = "buttonmoveaway 1s linear forwards";
     document.querySelector("#opbox").style.animation = "moveoperatorslist 2s linear forwards";
     document.querySelector("#playground").style.display = "inline-block";
-    document.querySelector("#playground").style.animation = "playgroundmoveup 1s linear forwards";
+    document.querySelector("#playground").style.animation = "playgroundmoveup .001s linear forwards";
     document.querySelector("#pmatches").style.display = "inline-block";
     document.querySelector("#pmatches").style.animation = "previousmatchesmoveup 2s linear forwards";
     document.querySelector("#questionscount").innerHTML = sessionStorage.getItem("questionscount");
@@ -378,6 +378,74 @@ function GenerateProblem(type)
                 answerSideC.readOnly = true;
                     break;
             }
+
+            if (a != 0 && b != 0 && alpha != 0)
+            {
+                beta = Math.round(Math.asin(b * Math.sin(alpha) / a));
+                gamma = totalAnglesSum - alpha - beta;
+                c = Math.round((a * Math.sin(gamma) / Math.sin(alpha)));
+            }
+
+            if (a != 0 && b != 0 && beta != 0)
+            {
+                alpha = Math.round(Math.asin(a * Math.sin(beta) / b));
+                gamma = totalAnglesSum - alpha - beta;
+                c = Math.round(b * Math.sin(gamma) / Math.sin(beta));
+            }
+
+            if (a != 0 && b != 0 && gamma != 0)
+            {
+                c = Math.round(Math.pow(a, 2) + Math.pow (b, 2) - 2 * a * b * Math.cos(gamma));
+                alpha = Math.round(Math.asin(a * Math.sin(gamma) / c));
+                beta = totalAnglesSum - alpha - gamma;
+            }
+
+            // ------ // todo: lazy af yeah exactly
+
+            /*if (a != 0 && c != 0 && alpha != 0)
+            {
+                b =
+                beta =
+                gamma =
+            }
+
+            if (a != 0 && c != 0 && beta != 0)
+            {
+                b =
+                alpha =
+                gamma =
+            }
+
+            if (a != 0 && c != 0 && gamma != 0)
+            {
+                b =
+                alpha =
+                beta =
+            }
+
+            // ------ //
+
+            if (b != 0 && c != 0 && alpha != 0)
+            {
+                a =
+                beta =
+                gamma =
+            }
+
+            if (b != 0 && c != 0 && beta != 0)
+            {
+                a =
+                alpha =
+                gamma =
+            }
+
+            if (b != 0 && c != 0 && gamma != 0)
+            {
+                a =
+                alpha =
+                beta =
+            }*/
+
             break;
     }
 
@@ -386,11 +454,12 @@ function GenerateProblem(type)
     [a, b , c, alpha, beta, gamma],
     ["#1", "#2", "180deg"],
     [b + c > a, b - c < a, alpha + beta + gamma == 180]]);
+
+    ResetTriangle()
 }
 
 function CheckResult()
 {   
-
     if (isPlaying && answerSideA.value == a && answerSideB.value == b && answerSideC.value == c && answerAngleAlpha.value == alpha && answerAngleBeta.value == beta && answerAngleGamma.value == gamma)
     {
         score++;
