@@ -395,12 +395,10 @@ function GenerateProblem(type)
 
             if (a != 0 && b != 0 && gamma != 0)
             {
-                c = Math.round(Math.pow(a, 2) + Math.pow (b, 2) - 2 * a * b * Math.cos(gamma));
+                c = Math.round(Math.sqrt((Math.pow(a, 2) + Math.pow (b, 2) - 2 * a * b * Math.cos(gamma))));
                 alpha = Math.round(Math.asin(a * Math.sin(gamma) / c));
                 beta = totalAnglesSum - alpha - gamma;
             }
-
-            // ------ //
 
             if (a != 0 && c != 0 && alpha != 0)
             {
@@ -411,7 +409,7 @@ function GenerateProblem(type)
 
             if (a != 0 && c != 0 && beta != 0)
             {
-                b = Math.round((Math.pow(a, 2) + Math.pow(c, 2) - 2 * a * c * Math.cos(beta)));
+                b = Math.round(Math.sqrt((Math.pow(a, 2) + Math.pow(c, 2) - 2 * a * c * Math.cos(beta))));
                 alpha = Math.round(Math.asin(a * Math.sin(beta) / b));
                 gamma = totalAnglesSum - alpha - beta
             }
@@ -420,31 +418,29 @@ function GenerateProblem(type)
             {
                 alpha = Math.round(Math.asin(a * Math.sin(gamma) / c));
                 beta = totalAnglesSum - alpha - gamma;
-                b = Math.round(Math.pow(a, 2) + Math.pow(c, 2) - 2 * a * b * Math.cos(beta));
+                b = Math.round(Math.sqrt((Math.pow(a, 2) + Math.pow(c, 2) - 2 * a * b * Math.cos(beta))));
             }
 
-            // ------ // todo, yeah lazy as fuck we all know that i am but pls its almost 7 am
-/*
             if (b != 0 && c != 0 && alpha != 0)
             {
-                a =
-                beta =
-                gamma =
+                a = Math.round(Math.sqrt((Math.pow(b, 2) + Math.pow(c, 2) - 2 * b * c * Math.cos(alpha))));
+                beta = Math.round(Math.asin(b * Math.sin(alpha) / alpha));
+                gamma = totalAnglesSum - alpha - beta;
             }
 
             if (b != 0 && c != 0 && beta != 0)
             {
-                a =
-                alpha =
-                gamma =
+                gamma = Math.round(c * Math.sin(beta) / b);
+                alpha = totalAnglesSum - beta - gamma;
+                a = Math.round(Math.sqrt((Math.pow(b, 2) + Math.pow(c, 2) - 2 * b * c * Math.cos(alpha))));
             }
 
             if (b != 0 && c != 0 && gamma != 0)
             {
-                a =
-                alpha =
-                beta =
-            }*/
+                beta = Math.round(b * Math.sin(gamma) / c);
+                alpha = totalAnglesSum - beta - gamma;
+                a = Math.round(Math.sqrt((Math.pow(b, 2) + Math.pow(c, 2) - 2 * b * c * Math.cos(alpha))));
+            }
 
             break;
     }
@@ -454,8 +450,6 @@ function GenerateProblem(type)
     [a, b , c, alpha, beta, gamma],
     ["#1", "#2", "180deg"],
     [b + c > a, b - c < a, alpha + beta + gamma == 180]]);
-
-    ResetTriangle()
 }
 
 function CheckResult()
