@@ -52,7 +52,7 @@ function StartGame()
     document.querySelector("#startgame").style.animation = "buttonmoveaway 1s linear forwards";
     document.querySelector("#opbox").style.animation = "moveoperatorslist 2s linear forwards";
     document.querySelector("#playground").style.display = "inline-block";
-    document.querySelector("#playground").style.animation = "playgroundmoveup .001s linear forwards";
+    document.querySelector("#playground").style.animation = "playgroundmoveup 1s linear forwards";
     document.querySelector("#pmatches").style.display = "inline-block";
     document.querySelector("#pmatches").style.animation = "previousmatchesmoveup 2s linear forwards";
     document.querySelector("#questionscount").innerHTML = sessionStorage.getItem("questionscount");
@@ -400,31 +400,31 @@ function GenerateProblem(type)
                 beta = totalAnglesSum - alpha - gamma;
             }
 
-            // ------ // todo: lazy af yeah exactly
+            // ------ //
 
-            /*if (a != 0 && c != 0 && alpha != 0)
+            if (a != 0 && c != 0 && alpha != 0)
             {
-                b =
-                beta =
-                gamma =
+                gamma = Math.round(Math.asin(c * Math.sin(alpha) / a));
+                beta = totalAnglesSum - alpha - gamma;
+                b = Math.round((a * Math.sin(beta) / Math.sin(alpha)));
             }
 
             if (a != 0 && c != 0 && beta != 0)
             {
-                b =
-                alpha =
-                gamma =
+                b = Math.round((Math.pow(a, 2) + Math.pow(c, 2) - 2 * a * c * Math.cos(beta)));
+                alpha = Math.round(Math.asin(a * Math.sin(beta) / b));
+                gamma = totalAnglesSum - alpha - beta
             }
 
             if (a != 0 && c != 0 && gamma != 0)
             {
-                b =
-                alpha =
-                beta =
+                alpha = Math.round(Math.asin(a * Math.sin(gamma) / c));
+                beta = totalAnglesSum - alpha - gamma;
+                b = Math.round(Math.pow(a, 2) + Math.pow(c, 2) - 2 * a * b * Math.cos(beta));
             }
 
-            // ------ //
-
+            // ------ // todo, yeah lazy as fuck we all know that i am but pls its almost 7 am
+/*
             if (b != 0 && c != 0 && alpha != 0)
             {
                 a =
